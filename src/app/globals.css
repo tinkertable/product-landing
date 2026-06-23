@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/*
+  ─────────────────────────────────────────────
+  디자인 토큰 — 색/폰트만 여기서 바꾸면 전체 톤이 바뀝니다.
+  (브랜드·가격·제품 카피는 src/lib/site.ts 에서 관리)
+
+  장르: 고전환 단일오퍼형 (신제품 세일즈 랜딩)
+  톤: 다크 프리미엄 + 일렉트릭 1포인트(volt). 임팩트 큰 타이포, 스크롤 리빌.
+  ─────────────────────────────────────────────
+*/
+@theme {
+  --color-night: #0a0a0d;
+  --color-coal: #131319;
+  --color-coal-2: #1d1d26;
+  --color-snow: #f6f6f9;
+  --color-mute: #9a9aab;
+  --color-mute-soft: #6f6f80;
+  --color-volt: #c8f135;
+  --color-volt-deep: #a7d018;
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-line-soft: rgba(255, 255, 255, 0.06);
+
+  --font-sans: var(--font-noto-kr), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: var(--color-night);
+  --foreground: var(--color-snow);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 스크롤 리빌 — 진입 시 페이드업 (세일즈 랜딩 임팩트) */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 은은한 volt 글로우 (히어로/CTA 뒤 배경) */
+.glow {
+  background: radial-gradient(
+    closest-side,
+    rgba(200, 241, 53, 0.18),
+    transparent
+  );
+}
+
+/* 폼 입력 공통 스타일 (다크) */
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-coal);
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-snow);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input::placeholder {
+  color: var(--color-mute-soft);
+}
+.input:focus {
+  border-color: var(--color-volt);
+  box-shadow: 0 0 0 3px rgba(200, 241, 53, 0.18);
+}
+.input option {
+  color: #111;
+}
