@@ -1,5 +1,4 @@
 import { site } from "@/lib/site";
-import { BudsVisual } from "./BudsVisual";
 
 export function Hero() {
   return (
@@ -58,14 +57,25 @@ export function Hero() {
             </p>
           </div>
 
-          {/* 우측: 제품 비주얼 */}
-          <div className="rise relative order-1 flex justify-center lg:order-2">
-            <div className="relative w-full max-w-md">
+          {/* 우측: 제품 비주얼 (실제 제품 사진) */}
+          <div className="rise relative order-1 lg:order-2">
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-line shadow-2xl shadow-black/40">
+              <img
+                src="/product/hero-buds.jpg"
+                alt="Pebble Buds 무선 이어버드와 충전 케이스"
+                className="aspect-[4/3] w-full object-cover"
+              />
               <div
                 aria-hidden
-                className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-coal-2 to-coal"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(60% 55% at 72% 18%, rgba(200,241,53,.16), transparent 60%), linear-gradient(180deg, transparent 60%, rgba(10,10,13,.35))",
+                }}
               />
-              <BudsVisual className="relative mx-auto w-[78%] drop-shadow-2xl" />
+              <span className="absolute bottom-4 left-4 rounded-full border border-line bg-night/60 px-3 py-1 text-xs font-bold text-snow backdrop-blur">
+                Pebble Buds Pro
+              </span>
             </div>
           </div>
         </div>
