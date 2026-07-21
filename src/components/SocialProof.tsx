@@ -24,7 +24,7 @@ export function SocialProof() {
         {/* 후기 */}
         <div className="mt-14 max-w-2xl">
           <h2 className="text-2xl font-black leading-snug tracking-tight text-snow sm:text-4xl">
-            12,000세트가 먼저 써봤습니다
+            먼저 써본 분들의 후기
           </h2>
         </div>
         <div className="mt-8 grid gap-4 lg:grid-cols-3">

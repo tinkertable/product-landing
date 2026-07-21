@@ -15,8 +15,13 @@ export function Hero() {
             <span className="inline-flex items-center gap-2 rounded-full border border-volt/40 bg-volt/10 px-3.5 py-1.5 text-xs font-bold text-volt">
               ● {site.limitedLabel}
             </span>
-            <h1 className="mt-5 text-4xl font-black leading-[1.1] tracking-tight text-snow sm:text-6xl">
-              {site.hook}
+            <h1 className="mt-5 text-4xl font-black leading-[1.1] tracking-tight text-snow [word-break:keep-all] sm:text-6xl">
+              {site.hook.split(",").map((part, i, arr) => (
+                <span key={i} className="block">
+                  {part.trim()}
+                  {i < arr.length - 1 ? "," : ""}
+                </span>
+              ))}
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-mute sm:text-lg">
               {site.subhook}
